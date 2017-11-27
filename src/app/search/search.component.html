@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="row col-md-8">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Recherche</div>
+				<div class="panel-body">
+					<!--form #f="ngForm" (ngSubmit)="onSearch(f.value)"-->
+					<form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+						<div class="form-group">		
+						    <div class="col-md-4"><input name="countrycity" [(ngModel)] = "dataForm" class="form-control" required="" type="text"></div> 
+						    <div class="col-md-3"><button class="btn btn-primary btn-block" type="submit">Lancer</button></div>
+						</div>			    
+					</form>
+				</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="panel panel-primary">
+			<div class="panel-heading">RESULTATS</div>
+			<div class="panel-body">		
+					<!-- -->
+					<div *ngIf = "booksInfos">
+						<div *ngFor = "let bI of booksInfos.items" class="col-md-3">
+							<div class="panel panel-primary">
+								<div class="panel-heading">{{bI.volumeInfo.title | slice:0:27}}...</div>
+								<div class="panel-body">		
+								 	<!--span *ngIf = "bI.kind">{{bI.kind}}</span><br/>
+								 	<span *ngIf = "bI.id">{{bI.id}}</span><br/>
+								 	<span *ngIf = "bI.etag">{{bI.etag}}</span><br/>
+								 	<span *ngIf = "bI.selfLink">{{bI.selfLink}}</span><br/-->
+
+									<img src=""/><br/>
+								 	<!--span *ngIf = "bI.volumeInfo.title">Titre : {{bI.volumeInfo.title}}</span><br/-->
+								 	<span *ngIf = "bI.volumeInfo.imageLinks.thumbnail"><img src="{{bI.volumeInfo.imageLinks.thumbnail}}" height="150"/></span><br/>
+								 	<span *ngIf = "bI.volumeInfo.publisher">Editeur : {{bI.volumeInfo.publisher}}</span><br/>
+								 	<span *ngIf = "bI.volumeInfo.publishedDate">Date édition : {{bI.volumeInfo.publishedDate | slice:0:10}}</span><br/>
+								 	<!--span *ngIf = "bI.volumeInfo.description">Description : {{bI.volumeInfo.description}}</span><br/-->
+								 	<span *ngIf = "bI.volumeInfo.authors">
+										<span *ngFor = "let author of bI.volumeInfo.authors">auteur : {{author | slice:0:20}}</span>
+								 	</span><br/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- -->
+			</div>
+		</div>
+	</div>
+</div>
+<app-angular></app-angular>

@@ -1,0 +1,24 @@
+<div class="container">
+<div class="row">
+<div routerLink="/description" class="panel panel-primary myLink">
+<div class="panel-heading">Résultats relatifs à Angular</div>
+<div class="panel-body">
+	<div *ngFor = "let bA of booksAngular?.items"  class="col-md-3">
+		<div *ngIf = "bA.volumeInfo.title && bA.volumeInfo.imageLinks.thumbnail"  class="panel panel-primary">
+			<div class="panel-heading">{{bA.volumeInfo.title | slice:0:30}}...</div>
+			<div class="panel-body">		
+			 	<span *ngIf = "bA.volumeInfo.imageLinks.thumbnail"><img src="{{bA.volumeInfo.imageLinks.thumbnail}}" height="150"/></span><br/>
+			 	<span *ngIf = "bA.volumeInfo.publisher">Editeur : {{bA.volumeInfo.publisher}}</span><br/>
+			 	<span *ngIf = "bA.volumeInfo.publishedDate">Date édition : {{bA.volumeInfo.publishedDate | slice:0:10}}</span><br/>
+			 	<span *ngIf = "bA.volumeInfo.authors">
+					<span *ngFor = "let author of bA.volumeInfo.authors">auteur : {{author | slice:0:20}}</span>
+			 	</span><br/>
+			</div>
+			<!--div class="panel-heading item-price">Price </div-->
+			<!--div class="panel-heading item-en-savoir-plus">En savoir plus</div-->
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>

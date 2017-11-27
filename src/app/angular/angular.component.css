@@ -1,0 +1,12 @@
+.myLink{cursor:pointer;}
+.item-en-savoir-plus{
+	background-color: gray;
+	border-radius: 0; 
+}
+.item-price{
+	/*background-color: gray;*/
+	border-radius: 0;
+	width: 90%;
+	height: 10%;
+	margin: auto; 
+}
